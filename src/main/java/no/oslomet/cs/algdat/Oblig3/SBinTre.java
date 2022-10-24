@@ -83,7 +83,7 @@ public class SBinTre<T> {
         return antall == 0;
     }
 
-    public boolean leggInn(T verdi) {
+    public boolean leggInn(T verdi) { //La inn Programkode 5.2.3 a) fra kompendiet
         Objects.requireNonNull(verdi, "Ulovlig med nullverdier!");
 
         Node<T> p = rot, q = null;               // p starter i roten
@@ -98,13 +98,14 @@ public class SBinTre<T> {
 
         // p er nå null, dvs. ute av treet, q er den siste vi passerte
 
-        p = new Node<T>(verdi, q);                   // oppretter en ny node
+        p = new Node<T>(verdi, q);                   // oppretter en ny node, her gjorde jeg endringer fra koden i kompendiet og satt q som foreldrenode
 
         if (q == null) rot = p;                  // p blir rotnode
         else if (cmp < 0) q.venstre = p;         // venstre barn til q
         else q.høyre = p;                        // høyre barn til q
 
         antall++;                                // én verdi mer i treet
+        endringer++;                             // La også til oppdatering av variabelen endringer
         return true;                             // vellykket innlegging
     }
 
