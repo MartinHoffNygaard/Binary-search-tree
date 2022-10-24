@@ -118,15 +118,18 @@ public class SBinTre<T> {
     }
 
     public int antall(T verdi) {
-        Objects.requireNonNull(verdi, "Binætreet kan ikke inneholde nullverdier!");
+        if(verdi == null) return 0;
         Node<T> p = rot;
         int antallAvVerdi = 0;
 
         while(p != null) {
             int cmp = comp.compare(verdi, p.verdi);
-            if(cmp == 0) antallAvVerdi++;
-            if (cmp <= 0) p = p.venstre;
-            else p = p.høyre;
+            if(cmp == 0) {
+                antallAvVerdi++;
+                p = p.høyre;
+            }
+            if(cmp < 0) p = p.venstre;
+            if(cmp > 0) p = p.høyre;
         }
 
         return antallAvVerdi;
