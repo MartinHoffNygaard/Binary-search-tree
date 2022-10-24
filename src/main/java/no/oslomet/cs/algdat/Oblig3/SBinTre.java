@@ -118,21 +118,21 @@ public class SBinTre<T> {
     }
 
     public int antall(T verdi) {
-        if(verdi == null) return 0;
-        Node<T> p = rot;
-        int antallAvVerdi = 0;
+        if(verdi == null) return 0; //returner 0 om det er en null verdi
+        Node<T> p = rot; //starter å traversere treet fra roten
+        int antallAvVerdi = 0; //variabel for å telle antall av verdien
 
-        while(p != null) {
-            int cmp = comp.compare(verdi, p.verdi);
-            if(cmp == 0) {
+        while(p != null) { //traverserer gjennom treet til vi kommer passerer bladnode
+            int cmp = comp.compare(verdi, p.verdi); //sjekker om verdien er i noden.
+            if(cmp == 0) { //om verdien er i node så øker telleren
                 antallAvVerdi++;
-                p = p.høyre;
+                p = p.høyre; //fortsetter å traversere treet til høyre barn i tilfelle det finnes flere av verdien
             }
-            if(cmp < 0) p = p.venstre;
-            if(cmp > 0) p = p.høyre;
+            if(cmp < 0) p = p.venstre; //går til venstre barn om verdien er mindre
+            if(cmp > 0) p = p.høyre; //går til høyre barn om verdien er større
         }
 
-        return antallAvVerdi;
+        return antallAvVerdi; //returner antall av verdien
     }
 
     public void nullstill() {
