@@ -13,4 +13,9 @@ opprettelsen av den nye noden til å inneholde noden q som foreldrenode. Dette f
 om det ikke er noen noder fra før så blir p rotnode og q er da null. Jeg la også til slik at endringer blir oppdatert når 
 det legges inn en ny node. 
 
-I oppgave 2 så brukte jeg en ... til å ...
+I oppgave 2 så lagde jeg først en hjelpevariabel som teller antall forekomster vi finner av verdien. Jeg lagde også en sjekk
+for om verdien er null siden da kan vi bare returnere 0 med en gang. Jeg brukte en while løkke for å traversere gjennom 
+treet fra rotnoden. Jeg brukte en comparator til å sammenligne verdien med verdien i en node, om den er mindre så går traverseringen
+videre til venstre barn og til høyre barn om den er større. Om verdiene er like så blir det telt i telleren jeg har laget 
+og traverseringen fortsetter videre til høyre barn i tilfelle det er flere forekomster av verdien som da vil ligge til høyre
+for noden. 
