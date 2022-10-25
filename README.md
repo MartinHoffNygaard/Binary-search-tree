@@ -19,3 +19,10 @@ treet fra rotnoden. Jeg brukte en comparator til å sammenligne verdien med verd
 videre til venstre barn og til høyre barn om den er større. Om verdiene er like så blir det telt i telleren jeg har laget 
 og traverseringen fortsetter videre til høyre barn i tilfelle det er flere forekomster av verdien som da vil ligge til høyre
 for noden. 
+
+i oppgave 3 så kodet jeg førstePostorden til å traversere gjennom treet helt til vi er på den bladnoden som er lengst til 
+venstre i treet. Dette er noden som blir først i postorden. I nestePostorden så sjekker jeg først om input noden er en rot
+node fordi da finnes det ikke en neste ettersom rotnoden er siste noden i postorden. Deretter sjekker jeg om forelderen 
+til noden har ett høyre barn og at dette ikke er noden selv. Om det er tilfellet så er forelderen neste noden i postorden. 
+Dersom det finnes ett høyrebarn så bruker jeg førstePostorden metoden på subtreet med den høyre barnet som rot til å finne
+neste node i postorden. 
