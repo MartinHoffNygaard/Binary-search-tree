@@ -158,10 +158,10 @@ public class SBinTre<T> {
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
-        Node<T> p = førstePostorden(rot);
-        while(p != null) {
-            oppgave.utførOppgave(p.verdi);
-            p = nestePostorden(p);
+        Node<T> p = førstePostorden(rot); //starter på den første noden i postorden
+        while(p != null) { //løkke til å traversere gjennom treet i postorden til vi når slutten
+            oppgave.utførOppgave(p.verdi); //utfører oppgaven på verdien til noden vi er på i postorden
+            p = nestePostorden(p); //beveger seg videre til den neste i postorden
         }
     }
 
@@ -170,10 +170,10 @@ public class SBinTre<T> {
     }
 
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        if(p != null) {
-            postordenRecursive(p.venstre, oppgave);
-            postordenRecursive(p.høyre, oppgave);
-            oppgave.utførOppgave(p.verdi);
+        if(p != null) { //Basistilfelle når vi har beveget oss utenfor treet
+            postordenRecursive(p.venstre, oppgave); //rekursivt kall som traverserer først helt ned til venstre i treet
+            postordenRecursive(p.høyre, oppgave); //rekursivt kall som traverserer helt til høyre i den vestre delen av treet
+            oppgave.utførOppgave(p.verdi); //utfører oppgave på verdien til noden i postorden
         }
     }
 
