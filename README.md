@@ -33,3 +33,9 @@ og utfører oppgaven på noden. Deretter traverserer metoden seg videre i treet 
 PostordenRecursive kodet jeg ved å sette basistilfelle til når vi har traveresert utenfor treet. Det gjøres ett enklere 
 rekursivt kall først på det venstre barnet til node så på det høyre barnet til noden. Når det rekursive kallet når den neste 
 noden i postorden så utføres oppgaven. 
+
+I oppgave 5 lagde jeg metoden serialize() ved å bruke ett deque som en kø. I køen så blir først rotnoden lagt til. Deretter 
+så er det en while løkke som går så lenge køen ikke er tom. Inne i while løkken så blir først den første noden i køen fjernet
+og verdien til denne noden blir lagret i output arrayet. Deretter så legges det høyre og venstre barnet til noden til i 
+køen dersom de finnes. I metoden deserialize så lages det først ett binært søketre, så bruker jeg leggInn metoden til å 
+legge til verdiene fra input arrayet. Looper gjennom verdiene til inputarrayet med en løkke. 
