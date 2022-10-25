@@ -108,7 +108,7 @@ public class SBinTre<T> {
         return true;                             // vellykket innlegging
     }
 
-    public boolean fjern(T verdi) {
+    public boolean fjern(T verdi) { //Kopiert fra programkode 5.2.8 d)
         if (verdi == null) return false;  // treet har ingen nullverdier
 
         Node<T> p = rot, q = null;   // q skal være forelder til p
@@ -125,10 +125,10 @@ public class SBinTre<T> {
         if (p.venstre == null || p.høyre == null)  // Tilfelle 1) og 2)
         {
             if(p.venstre != null) {
-                p.venstre.forelder = q;
+                p.venstre.forelder = q; //oppdaterer forelder til barna til noden som blir fjernet
             }
             if(p.høyre != null) {
-                p.høyre.forelder = q;
+                p.høyre.forelder = q; //oppdaterer forelder til barna til noden som blir fjernet
             }
             Node<T> b = p.venstre != null ? p.venstre : p.høyre;  // b for barn
             if (p == rot) rot = b;
@@ -150,7 +150,7 @@ public class SBinTre<T> {
 
             p.verdi = r.verdi;   // kopierer verdien i r til p
 
-            if(r.høyre != null) {
+            if(r.høyre != null) { //om det finnes ett høyre barn til noden som fjernes så setter forelderen til dette barnet
                 r.høyre.forelder = s;
             }
             if (s != p) s.venstre = r.høyre;
@@ -162,13 +162,13 @@ public class SBinTre<T> {
     }
 
     public int fjernAlle(T verdi) {
-        if(tom()) return 0;
-        int antallFjernet = 0;
+        if(tom()) return 0; //om treet er tomt så returneres 0
+        int antallFjernet = 0; //teller for antall av verdi som er fjernet
 
-        while(fjern(verdi)) {
-            antallFjernet++;
+        while(fjern(verdi)) { //løkke som går så lenge en verdi har blitt fjernet
+            antallFjernet++; //øker telleren
         }
-        return antallFjernet;
+        return antallFjernet; //returnerer telleren
     }
 
     public int antall(T verdi) {
@@ -190,19 +190,19 @@ public class SBinTre<T> {
     }
 
     public void nullstill() {
-        if(tom()) return;
-        Node<T> p = førstePostorden(rot);
+        if(tom()) return; //om treet er tomt så returneres det med engang
+        Node<T> p = førstePostorden(rot); //finner første node i postorden
 
-        while(nestePostorden(p) != null) {
-            Node<T> q = nestePostorden(p);
-            p.forelder = null;
+        while(nestePostorden(p) != null) { //går gjennom treet helt til vi er på siste node i postorden
+            Node<T> q = nestePostorden(p); //finner den neste i postorden
+            p.forelder = null; //nullstiller alle verdier til noden
             p.høyre = null;
             p.venstre = null;
             p = q;
         }
-        antall = 0;
+        antall = 0; //nullstiller alle verdier til treet
         endringer = 0;
-        rot.høyre = null;
+        rot.høyre = null; //rot er siste node i postorden så denne slettes etter løkken
         rot.venstre = null;
         rot = null;
     }
