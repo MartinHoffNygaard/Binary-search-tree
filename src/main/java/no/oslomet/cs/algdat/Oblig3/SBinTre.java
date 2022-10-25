@@ -175,27 +175,27 @@ public class SBinTre<T> {
     }
 
     public ArrayList<T> serialize() {
-        ArrayList<T> listeAvTre = new ArrayList<>();
-        if(tom()) return listeAvTre;
-        Deque<Node<T>> kø = new ArrayDeque<>();
+        ArrayList<T> listeAvTre = new ArrayList<>(); //opretter en liste som skal returneres
+        if(tom()) return listeAvTre; //om treet er tomt så returneres bare en tom liste
+        Deque<Node<T>> kø = new ArrayDeque<>(); //lager en kø som kan inneholde noder
 
-        kø.add(rot);
+        kø.add(rot); //legger rotnoden inn i køen
 
-        while(!kø.isEmpty()) {
-            Node<T> p = kø.removeFirst();
-            listeAvTre.add(p.verdi);
-            if(p.venstre != null) kø.add(p.venstre);
-            if(p.høyre != null) kø.add(p.høyre);
+        while(!kø.isEmpty()) { //løkke som går så lenge køen ikke er tom
+            Node<T> p = kø.removeFirst(); //fjerner den første i køen
+            listeAvTre.add(p.verdi); //legger til verdien fra noden som ble fjernet i output listen
+            if(p.venstre != null) kø.add(p.venstre); //legger til venstre barn til noden som blir fjernet om barnet finnes
+            if(p.høyre != null) kø.add(p.høyre); //legger til høyre barn til noden som blir fjernet om barnet finnes
         }
-        return listeAvTre;
+        return listeAvTre; //returnerer output listen
     }
 
     static <K> SBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
-       SBinTre<K> tre = new SBinTre<>(c);
-       for(K verdi : data) {
-           tre.leggInn(verdi);
+       SBinTre<K> tre = new SBinTre<>(c); //oppretter ett binært søketre med komparatoren
+       for(K verdi : data) { //går gjennom alle verdiene som finnes i input listen
+           tre.leggInn(verdi); //legger inn verdiene fra inputlisten i treet
        }
-       return tre;
+       return tre; //returnerer treet
     }
 
 
