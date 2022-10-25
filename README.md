@@ -39,3 +39,9 @@ så er det en while løkke som går så lenge køen ikke er tom. Inne i while l�
 og verdien til denne noden blir lagret i output arrayet. Deretter så legges det høyre og venstre barnet til noden til i 
 køen dersom de finnes. I metoden deserialize så lages det først ett binært søketre, så bruker jeg leggInn metoden til å 
 legge til verdiene fra input arrayet. Looper gjennom verdiene til inputarrayet med en løkke. 
+
+I oppgave 6 så startet jeg med å lage fjern metoden. Her kopierte jeg programkode 5.2.8 d) fra kompendiet og la til oppdatering
+av foreldre node der det trengtes. I fjernAlle metoden så bruker jeg en while løkke som kaller på fjern metoden så lenge 
+fjern metoden klarte å fjerne en verdi tidligere. Hver gang en verdi fjernes så oppdateres en teller som til slutt blir
+returnert. I nullstill metoden så traverserer metoden gjennom treet i postorden og sletter alle noder på veien. Til slutt
+slettes rot noden fordi den er siste noden i postorden. 
