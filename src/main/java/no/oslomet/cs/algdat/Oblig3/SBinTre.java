@@ -140,21 +140,20 @@ public class SBinTre<T> {
     }
 
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        while(p != null) {
+        while(true) {
             if(p.venstre != null) p = p.venstre;
             else if(p.høyre != null) p = p.høyre;
-            else break;
+            else return p;
         }
-        return p;
     }
 
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        if(p.forelder.høyre != null && p.forelder.høyre != p) {
-            p = p.forelder.høyre;
-            p = førstePostorden(p);
+        if(p.forelder == null) return null;
+        if(p.forelder.høyre == null || p.forelder.høyre == p) {
+            return p.forelder;
         }
-        else p = p.forelder;
-        return p;
+        Node<T> q = p.forelder.høyre;
+        return førstePostorden(q);
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
