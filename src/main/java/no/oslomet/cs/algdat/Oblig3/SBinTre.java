@@ -140,20 +140,19 @@ public class SBinTre<T> {
     }
 
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        while(true) {
-            if(p.venstre != null) p = p.venstre;
-            else if(p.høyre != null) p = p.høyre;
-            else return p;
+        while(true) { //løkke som traverserer gjennom treet
+            if(p.venstre != null) p = p.venstre; //beveger seg først lengst mulig til venstre
+            else if(p.høyre != null) p = p.høyre; //så beveger seg til høyre om det går når det ikke finnest venstre barn
+            else return p; //returnerer den første i postorden
         }
     }
 
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        if(p.forelder == null) return null;
-        if(p.forelder.høyre == null || p.forelder.høyre == p) {
-            return p.forelder;
+        if(p.forelder == null) return null; //sjekker om noden er en rotnode, da finnes det ikke en neste
+        if(p.forelder.høyre == null || p.forelder.høyre == p) { //sjekker om forelderen til noden har ett høyre barn != p
+            return p.forelder; //om den ikke har ett høyre barn så er foreldrenoden neste i postorden
         }
-        Node<T> q = p.forelder.høyre;
-        return førstePostorden(q);
+        return førstePostorden(p.forelder.høyre); //finner første i postorden på subtreet med foreldren sitt høyre barn som rot
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
