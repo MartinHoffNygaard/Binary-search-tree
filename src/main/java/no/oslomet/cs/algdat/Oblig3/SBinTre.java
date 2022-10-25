@@ -170,9 +170,11 @@ public class SBinTre<T> {
     }
 
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        if(p == null) return;
-        oppgave.utførOppgave(p.verdi);
-        postordenRecursive(nestePostorden(p), oppgave);
+        if(p != null) {
+            postordenRecursive(p.venstre, oppgave);
+            postordenRecursive(p.høyre, oppgave);
+            oppgave.utførOppgave(p.verdi);
+        }
     }
 
     public ArrayList<T> serialize() {
