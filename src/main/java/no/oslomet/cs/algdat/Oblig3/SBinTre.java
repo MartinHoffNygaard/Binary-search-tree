@@ -1,6 +1,8 @@
 package no.oslomet.cs.algdat.Oblig3;
 
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Objects;
@@ -156,7 +158,11 @@ public class SBinTre<T> {
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        Node<T> p = førstePostorden(rot);
+        while(p != null) {
+            oppgave.utførOppgave(p.verdi);
+            p = nestePostorden(p);
+        }
     }
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
@@ -164,7 +170,9 @@ public class SBinTre<T> {
     }
 
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        if(p == null) return;
+        oppgave.utførOppgave(p.verdi);
+        postordenRecursive(nestePostorden(p), oppgave);
     }
 
     public ArrayList<T> serialize() {
