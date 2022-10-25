@@ -20,9 +20,16 @@ videre til venstre barn og til høyre barn om den er større. Om verdiene er lik
 og traverseringen fortsetter videre til høyre barn i tilfelle det er flere forekomster av verdien som da vil ligge til høyre
 for noden. 
 
-i oppgave 3 så kodet jeg førstePostorden til å traversere gjennom treet helt til vi er på den bladnoden som er lengst til 
+I oppgave 3 så kodet jeg førstePostorden til å traversere gjennom treet helt til vi er på den bladnoden som er lengst til 
 venstre i treet. Dette er noden som blir først i postorden. I nestePostorden så sjekker jeg først om input noden er en rot
 node fordi da finnes det ikke en neste ettersom rotnoden er siste noden i postorden. Deretter sjekker jeg om forelderen 
 til noden har ett høyre barn og at dette ikke er noden selv. Om det er tilfellet så er forelderen neste noden i postorden. 
 Dersom det finnes ett høyrebarn så bruker jeg førstePostorden metoden på subtreet med den høyre barnet som rot til å finne
 neste node i postorden. 
+
+I oppgave 4 så kodet jeg den postorden metoden ved å bruke en while løkke. Metoden starter på den første noden i postorden 
+og utfører oppgaven på noden. Deretter traverserer metoden seg videre i treet ved hjelp av nestepostorden metoden og fortsetter 
+å utføre oppgaven på de neste i postorden. Når traverseringen har beveget seg utenfor treet så stopper while løkken. 
+PostordenRecursive kodet jeg ved å sette basistilfelle til når vi har traveresert utenfor treet. Det gjøres ett enklere 
+rekursivt kall først på det venstre barnet til node så på det høyre barnet til noden. Når det rekursive kallet når den neste 
+noden i postorden så utføres oppgaven. 
