@@ -2,7 +2,7 @@
 
 Denne oppgaven er en innlevering i Algoritmer og Datastrukturer. 
 Oppgaven er levert av følgende student:
-* Martin Hoff Nygaard, S362081, s362081@oslomet.no
+* s362081@oslomet.no
 
 
 # Oppgavebeskrivelse
