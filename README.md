@@ -10,3 +10,5 @@ Java code for manually creating a binary search tree using nodes for generic val
 -Recursive method to traverse the tree to a node in postorder.   
 -Creating a que of all the values in the tree   
 -Building the tree from a que.   
+
+The repository also contains gradle to test the functionalities. 
