@@ -1,4 +1,4 @@
-#Binary search tree in java
+# Binary search tree in java
 
 Java code for manually creating a binary search tree using nodes for generic values. The repository also contains gradle to test the functionalities. 
 
